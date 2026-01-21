@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TapDrop</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      background: #0f0f0f;
+      color: white;
+      font-family: Arial;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    button {
+      font-size: 28px;
+      padding: 25px 50px;
+      border-radius: 20px;
+      border: none;
+      background: gold;
+      cursor: pointer;
+    }
+    #coins {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="coins">🪙 Coins: 0</div>
+  <button onclick="tap()">TAP 👆</button>
+
+  <script>
+    let coins = 0;
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+
+    function tap() {
+      coins++;
+      document.getElementById("coins").innerText = "🪙 Coins: " + coins;
+      tg.sendData(JSON.stringify({ action: "tap", amount: 1 }));
+    }
+  </script>
+</body>
+</html>
