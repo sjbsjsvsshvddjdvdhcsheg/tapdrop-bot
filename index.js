@@ -23,7 +23,7 @@ bot.onText(/\/start/, (msg) => {
     inline_keyboard: [[
       {
         text: "▶️ PLAY",
-        web_app: { url: "https://YOUR_RAILWAY_URL.up.railway.app" }
+        web_app: { url: "tapdrop-bot-production.up.railway.app" }
       }
     ]]
   }
